@@ -1,0 +1,30 @@
+import { TThemeColors } from "../utils/convertThemeColorsToRootColors";
+
+export const colors: TThemeColors = {
+  ui: {
+    primary: "#242424",
+    "primary-tint": "#2b2b2b",
+    "primary-shade": "#121212",
+    secondary: "#008F75",
+    "secondary-tint": "#96D1C6",
+    tertiary: "#EF7D00",
+    "tertiary-tint": "#F99C36",
+    quartiary: "#00A75F",
+    "quartiary-tint": "#07C058",
+    red: "#FF3200",
+    "red-tint": "#F6BBB3",
+    blue: "#03426F",
+    "blue-tint": "#2A6996",
+    info: "#0052D9",
+    "info-tint": "#0B6DB3",
+    brown: "#AE7131",
+    gray: "#8E8E8E",
+    dark: "#252525",
+    light: "#F0F0F0",
+    black: "#000000",
+    white: "#FFFFFF",
+    success: "#75D873",
+    error: "#FF5500",
+    warning: "#F5B544",
+  },
+};
