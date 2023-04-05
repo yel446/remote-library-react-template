@@ -19,7 +19,7 @@ Dans le fichier **webpack.config.js** --> **plugin** --> **remote** du projet h�
 
 ```js 
 
-    custom_library: "custom_library@http://localhost:3000/remoteEntry.js ";  
+    custom_library: "custom_library@https://remote-library-react-template.vercel.app/remoteEntry.js ";  
       
 ```  
 &nbsp;  
