@@ -14,7 +14,7 @@ const OverviewPage: React.FC = () => {
 };
 
 const OverviewContainer = styled.div`
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   padding-top: 30px;
 `;

@@ -4,6 +4,7 @@ import { InlineIcon } from "@iconify/react";
 import { NavLink } from "react-router-dom";
 import "./App.layout.styles.scss";
 import { menu } from "../config/menu";
+import { LIBRARY_VERSION } from "../config/constants";
 
 const AppLayout: React.FC = () => {
   return (
@@ -15,16 +16,14 @@ const AppLayout: React.FC = () => {
 
         {menu.map((elt, index) => {
           return (
-            <>
-              <NavLink
-                key={index}
-                to={elt.route}
-                title={elt.label}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                {elt.label}
-              </NavLink>
-            </>
+            <NavLink
+              key={index}
+              to={elt.route}
+              title={elt.label}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              {elt.label}
+            </NavLink>
           );
         })}
       </div>
@@ -35,7 +34,7 @@ const AppLayout: React.FC = () => {
             style={{ fontSize: "2rem", color: "var(--ui-gray)" }}
           />
           <p style={{ marginLeft: "auto" }}>
-            Version <b> {"1.0.0"} </b>
+            Version <b>{LIBRARY_VERSION}</b>
           </p>
         </div>
         <div className="l-app__content-part__body">

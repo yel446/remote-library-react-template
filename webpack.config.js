@@ -1,6 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const webpack = require("webpack");
 const deps = require("./package.json").dependencies;
+const dotenv = require("dotenv");
+dotenv.config({ path: "./.env" });
+
 module.exports = (_, argv) => ({
   output: {
     publicPath: "http://localhost:3000/",
@@ -64,10 +68,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "authentication_form",
+      name: "custom_library",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        "./Sample": "./src/components/SampleComponent/SampleComponent.tsx",
+      },
       shared: {
         ...deps,
         react: {
@@ -82,6 +88,9 @@ module.exports = (_, argv) => ({
     }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
+    }),
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
     }),
   ],
 });
