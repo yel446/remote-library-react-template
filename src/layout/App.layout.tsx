@@ -1,7 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { InlineIcon } from "@iconify/react";
+import { NavLink } from "react-router-dom";
 import "./App.layout.styles.scss";
+import { menu } from "../config/menu";
 
 const AppLayout: React.FC = () => {
   return (
@@ -10,6 +12,21 @@ const AppLayout: React.FC = () => {
         <div className="l-app__sidenav__top-part">
           <h3 style={{ fontWeight: "400" }}> Custom Library </h3>
         </div>
+
+        {menu.map((elt, index) => {
+          return (
+            <>
+              <NavLink
+                key={index}
+                to={elt.route}
+                title={elt.label}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {elt.label}
+              </NavLink>
+            </>
+          );
+        })}
       </div>
       <div className="l-app__content-part">
         <div className="l-app__content-part__header">
@@ -17,6 +34,9 @@ const AppLayout: React.FC = () => {
             icon="material-symbols:menu-open-rounded"
             style={{ fontSize: "2rem", color: "var(--ui-gray)" }}
           />
+          <p style={{ marginLeft: "auto" }}>
+            Version <b> {"1.0.0"} </b>
+          </p>
         </div>
         <div className="l-app__content-part__body">
           <Outlet />

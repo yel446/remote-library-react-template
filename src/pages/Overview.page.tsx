@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import overview from "../md/overview.md";
 import styled from "styled-components";
+import MarkdownPreviewer from "../components/MarkdownPreviewer/MarkdownPreviewer";
+import useMarkdownFile from "../hooks/useMarkdownFile";
+import overview from "../docs/overview.md";
 
 const OverviewPage: React.FC = () => {
-  const [markdown, setMarkdown] = useState("");
-
-  useEffect(() => {
-    fetch(overview)
-      .then((res) => res.text())
-      .then((text) => setMarkdown(text));
-  }, []);
-
+  const markdown = useMarkdownFile(overview);
   return (
     <OverviewContainer>
-      <ReactMarkdown children={markdown} />
+      <MarkdownPreviewer children={markdown} />
     </OverviewContainer>
   );
 };

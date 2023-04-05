@@ -1,6 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
@@ -30,10 +29,26 @@ module.exports = (_, argv) => ({
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
       {
+        test: /\.(json)$/i,
+        use: [
+          {
+            loader: "json-loader",
+          },
+        ],
+      },
+      {
         test: /\.(png|jpe?g|gif|svg|md)$/i,
         use: [
           {
             loader: "file-loader",
+          },
+        ],
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: "markdown-loader",
           },
         ],
       },
