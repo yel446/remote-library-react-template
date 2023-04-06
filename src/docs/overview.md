@@ -49,6 +49,50 @@ Voici des bouts de code utiles pour gagner en productivité:
   
 &nbsp;  
 &nbsp;  
+  • Composant react *.tsx* [ **02 fichiers** / **scss** ]  
+&nbsp;  
+  Dans le fichier .tsx  
+```js
+  
+    import React, { ReactNode } from "react";
+    import "MonComposant.styles.scss";
+  
+    type TMonComposant = {
+        id: number,
+        text: string
+    };
+  
+    const MonComposant: React.FC<TMonComposant> = ({id, text}) => {
+        return (
+            <div className="c-mon-composant">
+                <p> ID : {id} </p>
+                <p> text : {text} </p>
+            </div>
+        );
+    };  
+    
+    export default MonComposant;  
+  
+  
+```
+  Dans le fichier .scss
+```css
+  
+    .c-mon-composant {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }  
+   
+  
+```  
+ 
+&nbsp;  
+&nbsp;  
 &nbsp;  
 ### 📐 Spécificité technique  🛠️
 &nbsp;  
