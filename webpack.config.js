@@ -18,6 +18,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
+    hot: true,
     port: 3000,
     historyApiFallback: true,
   },
@@ -62,9 +63,14 @@ module.exports = (_, argv) => ({
       {
         test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "react-hot-loader/webpack",
+          },
+        ],
       },
     ],
   },

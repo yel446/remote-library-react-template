@@ -19,6 +19,30 @@ const GlobalStyle = createGlobalStyle`
         }}
     }
 
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 8px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 10px transparent;
+        border-radius: 20px;
+        background-color: transparent;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--ui-gray);
+        border-radius: 15px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--ui-warning);
+    }
+
 `;
 
 export default GlobalStyle;

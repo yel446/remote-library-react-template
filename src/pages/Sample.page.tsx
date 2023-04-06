@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import sample from "../docs/sample.md";
-import SampleComponent from "../components/SampleComponent/SampleComponent";
+// import SampleComponent from "../components/SampleComponent/SampleComponent";
 import ComponentPreviewer from "../components/ComponentPreviewer/ComponentPreviewer";
 import useMarkdownFile from "../hooks/useMarkdownFile";
 import MarkdownPreviewer from "../components/MarkdownPreviewer/MarkdownPreviewer";
+import SuspenseFallback from "../components/SuspenseFallback/SuspenseFallback";
+
+const SampleComponent = React.lazy(
+  () => import("../components/SampleComponent/SampleComponent")
+);
 
 const SamplePage: React.FC = () => {
   const markdown = useMarkdownFile(sample);
@@ -15,7 +20,9 @@ const SamplePage: React.FC = () => {
       </h1>
       <ComponentPreviewer>
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          <SampleComponent text="Bonjour!!" />
+          <React.Suspense fallback={<SuspenseFallback />}>
+            <SampleComponent text="Bonjour!!" />
+          </React.Suspense>
           <p style={{ color: "var(--ui-gray)" }}>
             {`<SampleComponent`}
             <b style={{ color: "var(--ui-tertiary)" }}> text="Bonjour!!" </b>
@@ -25,7 +32,9 @@ const SamplePage: React.FC = () => {
       </ComponentPreviewer>
       <ComponentPreviewer>
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          <SampleComponent />
+          <React.Suspense fallback={<SuspenseFallback />}>
+            <SampleComponent />
+          </React.Suspense>
           <p style={{ color: "var(--ui-gray)" }}>{`<SampleComponent />`}</p>
         </div>
       </ComponentPreviewer>

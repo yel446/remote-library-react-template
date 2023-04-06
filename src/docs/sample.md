@@ -1,4 +1,4 @@
-## 📄 Documentaion de sample  
+## 📄 Documentation de sample  
 **SampleComponent.tsx** est un composant qui retourne juste le texte qu'on lui passe en paramètre.  
 S'il n'y a pas de texte en paramètee il affiche ".. Aucun texte en props ..."
 
