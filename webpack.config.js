@@ -103,7 +103,7 @@ module.exports = (_, argv) => ({
       "process.env": JSON.stringify(process.env),
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: "./web.config", to: "web.config" }],
+      patterns: [{ from: "./vercel.json", to: "vercel.json" }],
     }),
   ],
 });
