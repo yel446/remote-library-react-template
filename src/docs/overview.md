@@ -112,5 +112,5 @@ les éléments techniques constitutifs du projet:
 &nbsp;  
 &nbsp;  
 &nbsp;  
-                    <img src="../assets/images/png/avatar.png" alt= “yel-avatar” height="50"> Hello!! 👋🏾   je suis **@yel446** 
+                    <img src="./yel_avatar.png" alt= “yel-avatar” height="50"> Hello!! 👋🏾   je suis **@yel446** 
                     retrouve-moi sur    👉🏾 [ github ](https://github.com/yel446) 

@@ -34,7 +34,7 @@ const AppLayout: React.FC = () => {
             style={{ fontSize: "2rem", color: "var(--ui-gray)" }}
           />
           <p style={{ marginLeft: "auto" }}>
-            Version <b>{LIBRARY_VERSION}</b>
+            Version <b>{LIBRARY_VERSION || "1.0.0"}</b>
           </p>
         </div>
         <div className="l-app__content-part__body">
