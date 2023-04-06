@@ -2,8 +2,8 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const MarkdownPreviewer: React.FC<{ children: string }> = ({ children }) => {
   return (
@@ -17,7 +17,7 @@ const MarkdownPreviewer: React.FC<{ children: string }> = ({ children }) => {
           return !inline && match ? (
             <SyntaxHighlighter
               children={String(children).replace(/\\n/g, "\n")}
-              style={dark}
+              style={materialDark}
               language={match[1]}
               PreTag="div"
               {...props}
