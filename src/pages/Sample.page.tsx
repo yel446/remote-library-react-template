@@ -14,8 +14,20 @@ const SamplePage: React.FC = () => {
         <b>Sample Component</b>
       </h1>
       <ComponentPreviewer>
-        <SampleComponent text="Bonjour!!" />
-        <SampleComponent />
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <SampleComponent text="Bonjour!!" />
+          <p style={{ color: "var(--ui-gray)" }}>
+            {`<SampleComponent`}
+            <b style={{ color: "var(--ui-tertiary)" }}> text="Bonjour!!" </b>
+            {`/>`}
+          </p>
+        </div>
+      </ComponentPreviewer>
+      <ComponentPreviewer>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <SampleComponent />
+          <p style={{ color: "var(--ui-gray)" }}>{`<SampleComponent />`}</p>
+        </div>
       </ComponentPreviewer>
       <MarkdownPreviewer children={markdown} />
     </SampleContainer>

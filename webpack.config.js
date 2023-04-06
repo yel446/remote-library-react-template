@@ -8,7 +8,7 @@ dotenv.config({ path: "./.env" });
 module.exports = (_, argv) => ({
   output: {
     publicPath:
-      argv.mode === "developpement"
+      argv.mode === "development"
         ? "http://localhost:3000/"
         : "https://remote-library-react-template.vercel.app/",
   },
