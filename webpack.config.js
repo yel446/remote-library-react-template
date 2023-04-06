@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const deps = require("./package.json").dependencies;
 const dotenv = require("dotenv");
@@ -7,10 +8,13 @@ dotenv.config({ path: "./.env" });
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath:
-      argv.mode === "development"
-        ? "http://localhost:3000/"
-        : "https://remote-library-react-template-two.vercel.app/",
+    publicPath: {
+      "/":
+        argv.mode === "development"
+          ? "http://localhost:3000/"
+          : "https://remote-library-react-template-two.vercel.app/",
+      "/images/": "./public/",
+    },
   },
 
   resolve: {
@@ -100,6 +104,9 @@ module.exports = (_, argv) => ({
     }),
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(process.env),
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "./web.config", to: "web.config" }],
     }),
   ],
 });
