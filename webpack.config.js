@@ -10,7 +10,7 @@ module.exports = (_, argv) => ({
     publicPath:
       argv.mode === "development"
         ? "http://localhost:3000/"
-        : "https://remote-library-react-template.vercel.app/",
+        : "https://remote-library-react-template-two.vercel.app/",
   },
 
   resolve: {
