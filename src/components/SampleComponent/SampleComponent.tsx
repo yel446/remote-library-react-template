@@ -7,8 +7,8 @@ type TSAmple = {
 const SampleComponent: React.FC<TSAmple> = ({ text }) => {
   return (
     <SampleComponentContainer>
-      {!!text ? <p> {text} 😎 </p> : <p> ... Aucun texte en props ... </p>}
-    </SampleComponentContainer
+      {!!text ? <p> 😎 {text} 😎 </p> : <p> ... Aucun texte en props ... </p>}
+    </SampleComponentContainer>
   );
 };
 
